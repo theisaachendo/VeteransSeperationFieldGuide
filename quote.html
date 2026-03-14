@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Development Quote – Veterans Separation Field Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0 48px 48px;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .letterhead {
+      padding: 32px 0 28px;
+      border-bottom: 2px solid #1a1a1a;
+      margin-bottom: 28px;
+    }
+    .letterhead img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 22pt;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 12pt;
+      color: #555;
+      margin: 0 0 24px;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 24px;
+      font-size: 10.5pt;
+      color: #444;
+    }
+    .meta dt { font-weight: 600; color: #1a1a1a; }
+    .meta dd { margin: 0; }
+
+    section {
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 14pt;
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #ddd;
+      color: #1a1a1a;
+    }
+    p { margin: 0 0 10px; }
+    .muted { color: #555; font-size: 10.5pt; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 10.5pt;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    th {
+      font-weight: 600;
+      color: #1a1a1a;
+      background: #f8f8f8;
+    }
+    tr:last-child td { border-bottom: none; }
+    td:last-child { white-space: nowrap; }
+
+    ul { margin: 0 0 10px; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+
+    .total-row td {
+      font-weight: 700;
+      font-size: 11pt;
+      padding-top: 14px;
+      border-top: 2px solid #1a1a1a;
+    }
+    .total-row td:last-child { font-size: 12pt; }
+
+    .sign-off {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #e8e8e8;
+      font-style: italic;
+      color: #555;
+    }
+
+    @media print {
+      body { padding: 24px; }
+      .letterhead { padding-bottom: 20px; margin-bottom: 20px; }
+      section { margin-bottom: 20px; }
+      .letterhead img { height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="letterhead">
+    <img src="assets/logo.png" alt="Bay Area Software" />
+  </header>
+
+  <h1 class="doc-title">Website Development Deliverables</h1>
+  <p class="doc-subtitle">Veterans Separation Field Guide</p>
+
+  <dl class="meta">
+    <dt>To</dt><dd>Ryan Buckingham</dd>
+    <dt>From</dt><dd>Isaac Henderson · Bay Area Software</dd>
+    <dt>Date</dt><dd>March 2025</dd>
+    <dt>Project</dt><dd>VeteransSeparationFieldGuide.com (primary site)</dd>
+  </dl>
+
+  <section>
+    <h2>1. Tech Stack (Summary)</h2>
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Frontend</strong></td><td>React + Vite</td><td>Fast, modern UI; easy to maintain and scale</td></tr>
+        <tr><td><strong>Hosting</strong></td><td>Netlify</td><td>Reliable hosting, simple deploys, optional serverless</td></tr>
+        <tr><td><strong>Payments</strong></td><td>Stripe</td><td>Field Guide ($20) + mentoring session payments (your existing account)</td></tr>
+        <tr><td><strong>Scheduling</strong></td><td>Calendly</td><td>1:1 mentoring booking (your existing account)</td></tr>
+        <tr><td><strong>Email</strong></td><td>Mailchimp or ConvertKit</td><td>Newsletter, delivery emails, list building (you choose)</td></tr>
+        <tr><td><strong>Meetings</strong></td><td>Google Meet</td><td>Mentoring & workshops (you connect to Calendly)</td></tr>
+        <tr><td><strong>Domain / DNS</strong></td><td>GoDaddy</td><td>Existing registrar; DNS pointed at Netlify</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">All integrations use your existing Stripe and Calendly setups. No Squarespace or WordPress — custom build only.</p>
+  </section>
+
+  <section>
+    <h2>2. Pages (Summary)</h2>
+    <table>
+      <thead>
+        <tr><th>Page</th><th>Summary</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Home</strong></td><td>Hero (“Your Military Career Is Ending. Your Life Mission Isn’t.”), who it’s for, your story, Field Guide + mentoring CTAs, workshop promo, email signup</td></tr>
+        <tr><td><strong>Field Guide</strong></td><td>Product description, what they learn, table of contents, $20 buy button → Stripe → PDF delivery by email</td></tr>
+        <tr><td><strong>Mentoring</strong></td><td>1:1 session overview (60 min), what’s included, “Schedule Your Session” → Calendly (+ Stripe)</td></tr>
+        <tr><td><strong>Workshops</strong></td><td>Workshop topics and value, “Register for a Workshop” CTA (Google Meet)</td></tr>
+        <tr><td><strong>About</strong></td><td>Your bio (Coast Guard, 20+ years), mission, roles (Educator, Realtor, Field Guide creator)</td></tr>
+        <tr><td><strong>Contact</strong></td><td>Simple contact form + your contact info (email, phone, tagline)</td></tr>
+        <tr><td><strong>Disclaimer</strong></td><td>Legal disclaimer (educational only; not a VSO/attorney; direct to VA accredited reps)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Navigation:</strong> Home · Field Guide · Mentoring · Workshops · <strong>Rate My VSO</strong> (outbound link to RateMyVSO.com) · Contact</p>
+    <p class="muted">VA verification link (accredited reps) in footer or relevant section; email capture for newsletter/announcements.</p>
+  </section>
+
+  <section>
+    <h2>3. Out of Scope (This Quote)</h2>
+    <ul>
+      <li><strong>RateMyVSO.com</strong> — Separate platform (reviews, directory, etc.); can be quoted as Phase 2.</li>
+      <li><strong>Content creation</strong> — You provide copy, photos, and Field Guide PDF; implementation and layout are in scope.</li>
+      <li><strong>Ongoing hosting/domain</strong> — Your existing GoDaddy/Netlify (or similar) costs; not included in dev fee.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Cost of Development</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Description</th><th>Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Discovery & scope</strong></td><td>Aligning on structure, pages, and integrations (already done)</td><td>$0</td></tr>
+        <tr><td><strong>Design</strong></td><td>Layout, navigation, branding (navy, black, white, gold), responsive</td><td>$150</td></tr>
+        <tr><td><strong>Build – core site</strong></td><td>React + Vite build: Home, About, Field Guide, Mentoring, Workshops, Contact, Disclaimer</td><td>$100</td></tr>
+        <tr><td><strong>Integrations</strong></td><td>Stripe checkout + PDF delivery; Calendly embed/link; email capture (Mailchimp or ConvertKit); VA link</td><td>$100</td></tr>
+        <tr><td><strong>Content & QA</strong></td><td>Dropping in your copy/images, testing flows, mobile check</td><td>$0</td></tr>
+        <tr><td><strong>Launch</strong></td><td>DNS, go-live, basic handoff</td><td>$0</td></tr>
+        <tr class="total-row"><td></td><td><strong>Total (primary site)</strong></td><td><strong>$350</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>5. What You Provide</h2>
+    <ul>
+      <li>Field Guide PDF and cover image</li>
+      <li>Professional photos and any workshop imagery</li>
+      <li>Final website copy (or we use the README as a draft)</li>
+      <li>Access to GoDaddy (DNS), Stripe, Calendly, and chosen email tool</li>
+      <li>Brand colors and any logo assets</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Next Steps</h2>
+    <ol>
+      <li>Approve quote and confirm payment terms.</li>
+      <li>You provide assets and access (GoDaddy, Stripe, Calendly, email).</li>
+      <li>Kick off design, then build and integrations.</li>
+      <li>Content load, QA, and launch.</li>
+    </ol>
+  </section>
+
+  <p class="sign-off">Thank you for the opportunity to work on the Veterans Separation Field Guide. Looking forward to getting this live for you.</p>
+</body>
+</html>
