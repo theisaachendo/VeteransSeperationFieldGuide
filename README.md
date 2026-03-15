@@ -175,9 +175,9 @@ Both sites feed the same veteran education ecosystem. RateMyVSO will eventually 
 ## Project Status
 
 - [x] Deliverables documented
-- [ ] React + Vite project setup
-- [ ] Design (nav, layout, branding)
-- [ ] Build primary site (VeteransSeparationFieldGuide.com)
+- [x] React + Vite project setup
+- [x] Design (nav, layout, branding)
+- [x] Build primary site (VeteransSeparationFieldGuide.com)
 - [ ] Stripe + Calendly + email + PDF delivery wiring
 - [ ] RateMyVSO.com (phase 2)
 
