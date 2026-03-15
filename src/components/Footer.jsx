@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import bayAreaSoftwareLogo from '../../assets/Bay Area Software-2/icononly_transparent_nobuffer.png'
 
 export default function Footer() {
   return (
@@ -27,6 +28,20 @@ export default function Footer() {
           </a>
         </p>
         <p style={copyStyle}>© {new Date().getFullYear()} Veterans Separation Field Guide</p>
+        <a
+          href="https://bayareasoftware.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={builtByStyle}
+          aria-label="Website built by Bay Area Software"
+        >
+          <span style={builtByLabelStyle}>Website built by</span>
+          <img
+            src={bayAreaSoftwareLogo}
+            alt="Bay Area Software"
+            style={builtByLogoStyle}
+          />
+        </a>
       </div>
     </footer>
   )
@@ -68,4 +83,28 @@ const copyStyle = {
   fontSize: '0.85rem',
   margin: 0,
   opacity: 0.7,
+}
+
+const builtByStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  marginTop: '1rem',
+  paddingTop: '1rem',
+  borderTop: '1px solid rgba(255,255,255,0.15)',
+  color: 'rgba(255,255,255,0.6)',
+  textDecoration: 'none',
+  fontSize: '0.75rem',
+  transition: 'color 0.2s, opacity 0.2s',
+}
+
+const builtByLabelStyle = {
+  opacity: 0.9,
+}
+
+const builtByLogoStyle = {
+  height: 22,
+  width: 'auto',
+  display: 'block',
+  opacity: 0.85,
 }

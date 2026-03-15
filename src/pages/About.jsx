@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { calendlyMentoringLink } from '../config/calendly'
 
 export default function About() {
   const roles = [
@@ -61,12 +62,21 @@ export default function About() {
                 >
                   Get in Touch
                 </Link>
-                <Link
-                  to="/mentoring"
-                  className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
-                >
-                  Book a Mentoring Session
-                </Link>
+                {calendlyMentoringLink ? (
+                  <a
+                    href={calendlyMentoringLink}
+                    className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                  >
+                    Book a Mentoring Session
+                  </a>
+                ) : (
+                  <Link
+                    to="/mentoring"
+                    className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                  >
+                    Book a Mentoring Session
+                  </Link>
+                )}
               </div>
             </div>
           </div>

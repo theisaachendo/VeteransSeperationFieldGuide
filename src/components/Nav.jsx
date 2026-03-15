@@ -1,42 +1,90 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { gsap } from 'gsap'
+import ComingSoonModal from './ComingSoonModal'
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/field-guide', label: 'Field Guide' },
   { to: '/mentoring', label: 'Mentoring' },
   { to: '/workshops', label: 'Workshops' },
-  { href: 'https://ratemyvso.com', label: 'Rate My VSO', external: true },
+  { href: 'https://ratemyvso.com', label: 'Rate My VSO', external: true, comingSoon: true },
   { to: '/contact', label: 'Contact' },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [showComingSoon, setShowComingSoon] = useState(false)
   const location = useLocation()
+  const menuRef = useRef(null)
+  const linksRef = useRef([])
+
+  useLayoutEffect(() => {
+    if (!menuRef.current) return
+    const links = linksRef.current.filter(Boolean)
+    if (open) {
+      gsap.set(menuRef.current, { height: 'auto', overflow: 'hidden' })
+      gsap.fromTo(
+        menuRef.current,
+        { height: 0, opacity: 0 },
+        { height: 'auto', opacity: 1, duration: 0.35, ease: 'power3.out' }
+      )
+      gsap.fromTo(
+        links,
+        { opacity: 0, y: -12 },
+        { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, delay: 0.08, ease: 'power3.out' }
+      )
+    } else {
+      gsap.to(links, { opacity: 0, y: -8, duration: 0.2, stagger: 0.02, ease: 'power2.in' })
+      gsap.to(menuRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.25,
+        delay: 0.12,
+        ease: 'power2.in',
+        onComplete: () => {
+          if (menuRef.current) gsap.set(menuRef.current, { overflow: 'hidden' })
+        },
+      })
+    }
+  }, [open])
 
   return (
-    <header style={headerStyle}>
-      <div style={containerStyle}>
-        <Link to="/" style={logoStyle}>
+    <header className="sticky top-0 z-[100] bg-[var(--color-navy)] text-white shadow-lg">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
+        <Link
+          to="/"
+          className="text-lg font-bold text-white no-underline transition opacity hover:opacity-90"
+        >
           Veterans Separation Field Guide
         </Link>
         <button
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          style={menuButtonStyle}
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/40 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] sm:hidden"
         >
-          {open ? '✕' : '☰'}
+          <span className="text-xl">{open ? '✕' : '☰'}</span>
         </button>
-        <nav style={{ ...navStyle, ...(open ? navOpenStyle : {}) }}>
+        {/* Desktop nav */}
+        <nav className="hidden gap-8 sm:flex sm:items-center">
           {navLinks.map((item) =>
-            item.external ? (
+            item.comingSoon ? (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => setShowComingSoon(true)}
+                className="nav-link border-none bg-transparent p-0 font-medium text-white/90 transition hover:text-[var(--color-gold)]"
+              >
+                {item.label}
+              </button>
+            ) : item.external ? (
               <a
                 key={item.label}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={linkStyle(location.pathname === item.to)}
+                className={`nav-link font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90'}`}
               >
                 {item.label}
               </a>
@@ -44,8 +92,7 @@ export default function Nav() {
               <Link
                 key={item.label}
                 to={item.to}
-                style={linkStyle(location.pathname === item.to)}
-                onClick={() => setOpen(false)}
+                className={`nav-link font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90'}`}
               >
                 {item.label}
               </Link>
@@ -53,64 +100,53 @@ export default function Nav() {
           )}
         </nav>
       </div>
+      {/* Mobile nav (animated panel) */}
+      <div
+        ref={menuRef}
+        className="overflow-hidden border-t border-white/10 sm:hidden"
+        style={{ height: 0 }}
+      >
+        <nav className="flex flex-col gap-1 px-4 pb-4 pt-3">
+          {navLinks.map((item, i) =>
+            item.comingSoon ? (
+              <button
+                key={item.label}
+                type="button"
+                ref={(el) => (linksRef.current[i] = el)}
+                onClick={() => {
+                  setShowComingSoon(true)
+                  setOpen(false)
+                }}
+                className="nav-link rounded-lg px-4 py-3 text-left font-medium text-white/90 transition hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </button>
+            ) : item.external ? (
+              <a
+                key={item.label}
+                ref={(el) => (linksRef.current[i] = el)}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`nav-link rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                ref={(el) => (linksRef.current[i] = el)}
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className={`nav-link rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
+        </nav>
+      </div>
+      <ComingSoonModal isOpen={showComingSoon} onClose={() => setShowComingSoon(false)} />
     </header>
   )
 }
-
-const headerStyle = {
-  position: 'sticky',
-  top: 0,
-  zIndex: 100,
-  backgroundColor: 'var(--color-navy)',
-  color: 'var(--color-white)',
-  boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
-}
-
-const containerStyle = {
-  maxWidth: 1200,
-  margin: '0 auto',
-  padding: '1rem 1.5rem',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  flexWrap: 'wrap',
-  gap: '1rem',
-}
-
-const logoStyle = {
-  color: 'var(--color-white)',
-  fontWeight: 700,
-  fontSize: '1.1rem',
-  textDecoration: 'none',
-}
-
-const menuButtonStyle = {
-  display: 'block',
-  padding: '0.5rem',
-  background: 'transparent',
-  border: '1px solid rgba(255,255,255,0.4)',
-  color: 'var(--color-white)',
-  borderRadius: 4,
-  cursor: 'pointer',
-  fontSize: '1.25rem',
-}
-
-const navStyle = {
-  display: 'flex',
-  gap: '1.5rem',
-  alignItems: 'center',
-}
-
-const navOpenStyle = {
-  width: '100%',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  paddingTop: '0.5rem',
-}
-
-const linkStyle = (active) => ({
-  color: active ? 'var(--color-gold)' : 'var(--color-white)',
-  textDecoration: 'none',
-  fontWeight: 500,
-  opacity: active ? 1 : 0.9,
-})

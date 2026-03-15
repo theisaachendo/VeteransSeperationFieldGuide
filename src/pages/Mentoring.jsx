@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { calendlyMentoringLink } from '../config/calendly'
 
 export default function Mentoring() {
   const includes = [
@@ -43,12 +44,21 @@ export default function Mentoring() {
               Sessions are held via <strong className="text-neutral-900">Google Meet</strong>. After you book, you’ll get a confirmation and meeting link. Payment is handled through the booking flow.
             </p>
           </div>
-          <Link
-            to="#"
-            className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
-          >
-            Schedule Your Session
-          </Link>
+          {calendlyMentoringLink ? (
+            <a
+              href={calendlyMentoringLink}
+              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Schedule Your Session
+            </a>
+          ) : (
+            <Link
+              to="/mentoring"
+              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Schedule Your Session
+            </Link>
+          )}
         </div>
       </section>
     </div>

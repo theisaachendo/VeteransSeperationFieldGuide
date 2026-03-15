@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { stripeFieldGuidePaymentLink } from '../config/stripe'
 
 export default function FieldGuide() {
   const topics = [
@@ -44,12 +45,23 @@ export default function FieldGuide() {
               <strong className="text-neutral-900">$20</strong> — one-time. You’ll receive the PDF by email right after checkout.
             </p>
           </div>
-          <Link
-            to="#"
-            className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
-          >
-            Get the Field Guide — $20
-          </Link>
+          {stripeFieldGuidePaymentLink ? (
+            <a
+              href={stripeFieldGuidePaymentLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Get the Field Guide — $20
+            </a>
+          ) : (
+            <Link
+              to="/field-guide"
+              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Get the Field Guide — $20
+            </Link>
+          )}
         </div>
       </section>
     </div>

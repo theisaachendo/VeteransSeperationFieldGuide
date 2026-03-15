@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { calendlyWorkshopsLink } from '../config/calendly'
 
 export default function Workshops() {
   const topics = [
@@ -39,12 +40,23 @@ export default function Workshops() {
               </li>
             ))}
           </ul>
-          <Link
-            to="#"
-            className="mt-10 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
-          >
-            Register for a Workshop
-          </Link>
+          {calendlyWorkshopsLink ? (
+            <a
+              href={calendlyWorkshopsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Register for a Workshop
+            </a>
+          ) : (
+            <Link
+              to="/workshops"
+              className="mt-10 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+            >
+              Register for a Workshop
+            </Link>
+          )}
         </div>
       </section>
     </div>
