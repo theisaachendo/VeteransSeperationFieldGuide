@@ -22,9 +22,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-start">
             <div className="rounded-xl overflow-hidden shadow-lg aspect-[3/4] max-h-[480px] md:max-h-none">
               <img
                 src="/assets/RyanRealestate.png"
@@ -55,24 +55,24 @@ export default function About() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
+                  className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
                 >
                   Get in Touch
                 </Link>
                 {calendlyMentoringLink ? (
                   <a
                     href={calendlyMentoringLink}
-                    className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
                     Book a Mentoring Session
                   </a>
                 ) : (
                   <Link
                     to="/mentoring"
-                    className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
                     Book a Mentoring Session
                   </Link>

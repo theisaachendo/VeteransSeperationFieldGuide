@@ -23,7 +23,7 @@ export default function Mentoring() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-lg text-neutral-600 leading-relaxed">
             Book a one-on-one session with Ryan to go over your situation: VA benefits, disability claims, education benefits, and a transition plan that fits your timeline.
@@ -47,14 +47,14 @@ export default function Mentoring() {
           {calendlyMentoringLink ? (
             <a
               href={calendlyMentoringLink}
-              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-8 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Schedule Your Session
             </a>
           ) : (
             <Link
               to="/mentoring"
-              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-8 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Schedule Your Session
             </Link>

@@ -24,7 +24,7 @@ export default function Workshops() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-lg text-neutral-600 leading-relaxed">
             Join workshops focused on the topics that matter most for your transition: understanding VA benefits, filing strategies, education benefits, and the timeline and resources you need to plan ahead.
@@ -45,14 +45,14 @@ export default function Workshops() {
               href={calendlyWorkshopsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-10 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Register for a Workshop
             </a>
           ) : (
             <Link
               to="/workshops"
-              className="mt-10 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-10 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Register for a Workshop
             </Link>

@@ -13,7 +13,7 @@ export default function Disclaimer() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="p-6 sm:p-8 rounded-xl bg-neutral-50 border border-neutral-200 text-neutral-700 leading-relaxed">
             <p>
@@ -27,7 +27,7 @@ export default function Disclaimer() {
             href="https://www.va.gov/get-help-from-accredited-representative/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
+            className="mt-8 inline-flex items-center justify-center min-h-[48px] gap-2 rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
           >
             Find accredited representatives at VA.gov
             <span aria-hidden>→</span>

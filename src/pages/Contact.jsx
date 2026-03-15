@@ -53,7 +53,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div className="p-6 sm:p-8 rounded-xl bg-neutral-50 border border-neutral-200 shadow-sm">
             <p className="text-xl font-semibold text-[var(--color-navy)]">Ryan Buckingham</p>
@@ -61,13 +61,13 @@ export default function Contact() {
             <div className="mt-6 space-y-3">
               <a
                 href="mailto:Ryan@veteranseparationfieldguide.com"
-                className="block text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
+                className="block min-h-[44px] py-2 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
               >
                 Ryan@veteranseparationfieldguide.com
               </a>
               <a
                 href="tel:757-355-3222"
-                className="block text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
+                className="block min-h-[44px] py-2 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
               >
                 757-355-3222
               </a>
@@ -97,7 +97,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === 'sending'}
-                    className="w-full rounded-lg border border-neutral-300 px-4 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full min-h-[48px] rounded-lg border border-neutral-300 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="Your name"
                   />
                 </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === 'sending'}
-                    className="w-full rounded-lg border border-neutral-300 px-4 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full min-h-[48px] rounded-lg border border-neutral-300 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === 'sending'}
-                    className="w-full rounded-lg border border-neutral-300 px-4 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent resize-y disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full min-h-[120px] rounded-lg border border-neutral-300 px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:border-transparent resize-y disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="How can we help?"
                   />
                 </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {status === 'sending' ? 'Sending…' : 'Send message'}
                 </button>

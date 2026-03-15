@@ -22,7 +22,7 @@ export default function ComingSoonModal({ isOpen, onClose }) {
         <button
           type="button"
           onClick={onClose}
-          className="mt-6 rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--color-navy)] text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2"
+          className="mt-6 min-h-[48px] min-w-[48px] rounded-lg px-6 py-3 text-base font-semibold bg-[var(--color-navy)] text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2"
         >
           Close
         </button>

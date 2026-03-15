@@ -5,7 +5,7 @@ import { calendlyMentoringLink, calendlyWorkshopsLink } from '../config/calendly
 import { formspreeNewsletterEndpoint } from '../config/formspree'
 
 const fieldGuideCtaClass =
-  'inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 shadow-lg hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors'
+  'inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 shadow-lg hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors'
 
 export default function Home() {
   const [newsletterEmail, setNewsletterEmail] = useState('')
@@ -39,7 +39,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <img
@@ -57,7 +57,7 @@ export default function Home() {
           <p className="mt-6 text-lg sm:text-xl text-neutral-200 max-w-2xl">
             The step-by-step guide to understanding VA benefits, disability claims, education benefits, and life after the military.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-3 sm:gap-4">
             {stripeFieldGuidePaymentLink ? (
               <a
                 href={stripeFieldGuidePaymentLink}
@@ -75,14 +75,14 @@ export default function Home() {
             {calendlyMentoringLink ? (
               <a
                 href={calendlyMentoringLink}
-                className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-transparent border-2 border-white text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors"
+                className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-transparent border-2 border-white text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors"
               >
                 Book a 1:1 Mentoring Session
               </a>
             ) : (
               <Link
                 to="/mentoring"
-                className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-transparent border-2 border-white text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors"
+                className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-transparent border-2 border-white text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors"
               >
                 Book a 1:1 Mentoring Session
               </Link>
@@ -156,20 +156,20 @@ export default function Home() {
             <p className="mt-6 text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
               One clear, step-by-step resource: VA disability strategy, GI Bill, healthcare enrollment, your 365-day transition timeline, and key resources many veterans miss.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-3 sm:gap-4">
             {stripeFieldGuidePaymentLink ? (
               <a
                 href={stripeFieldGuidePaymentLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
+                className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
               >
                 Get the Guide — $20
               </a>
             ) : (
               <Link
                 to="/field-guide"
-                className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
+                className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-navy)] focus:ring-offset-2 transition-colors"
               >
                 Get the Guide — $20
               </Link>
@@ -197,18 +197,18 @@ export default function Home() {
               <p className="mt-6 text-lg sm:text-xl text-neutral-600 leading-relaxed">
                 Get personalized guidance in 60-minute mentoring sessions, or join workshops on VA disability claims, GI Bill, healthcare, and transition timelines—all via Google Meet.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
                 {calendlyMentoringLink ? (
                   <a
                     href={calendlyMentoringLink}
-                    className="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] transition-colors"
                   >
                     Schedule a Session
                   </a>
                 ) : (
                   <Link
                     to="/mentoring"
-                    className="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] transition-colors"
                   >
                     Schedule a Session
                   </Link>
@@ -218,14 +218,14 @@ export default function Home() {
                     href={calendlyWorkshopsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-5 py-2.5 text-sm font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
                     Register for a Workshop
                   </a>
                 ) : (
                   <Link
                     to="/workshops"
-                    className="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-5 py-2.5 text-sm font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
                     Register for a Workshop
                   </Link>
@@ -262,13 +262,13 @@ export default function Home() {
                 placeholder="Your email"
                 required
                 disabled={newsletterStatus === 'sending'}
-                className="flex-1 min-w-0 rounded-lg px-4 py-3 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] disabled:opacity-60"
+                className="flex-1 min-w-0 min-h-[48px] rounded-lg px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] disabled:opacity-60"
                 aria-label="Email address"
               />
               <button
                 type="submit"
                 disabled={newsletterStatus === 'sending' || !formspreeNewsletterEndpoint}
-                className="rounded-lg px-6 py-3 font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="min-h-[48px] rounded-lg px-6 py-3 font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {newsletterStatus === 'sending' ? 'Signing up…' : 'Sign up'}
               </button>

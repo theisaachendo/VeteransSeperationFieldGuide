@@ -24,7 +24,7 @@ export default function FieldGuide() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-lg text-neutral-600 leading-relaxed">
             The Field Guide walks you through what you need to know before and after separation: how to approach VA disability claims, use your GI Bill, enroll in healthcare, and plan your transition so you don’t miss critical benefits.
@@ -50,14 +50,14 @@ export default function FieldGuide() {
               href={stripeFieldGuidePaymentLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-8 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Get the Field Guide — $20
             </a>
           ) : (
             <Link
               to="/field-guide"
-              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
+              className="mt-8 inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3.5 text-base font-semibold bg-[var(--color-gold)] text-neutral-900 hover:bg-[var(--color-gold-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 transition-colors"
             >
               Get the Field Guide — $20
             </Link>

@@ -51,7 +51,7 @@ const footerStyle = {
   marginTop: 'auto',
   backgroundColor: 'var(--color-navy)',
   color: 'var(--color-white)',
-  padding: '2rem 1.5rem',
+  padding: '1.5rem 1rem 2rem',
 }
 
 const containerStyle = {
@@ -64,13 +64,18 @@ const linksStyle = {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  gap: '1rem',
+  gap: '0.5rem 1rem',
   marginBottom: '1rem',
 }
 
 const linkStyle = {
   color: 'rgba(255,255,255,0.9)',
   textDecoration: 'none',
+  padding: '0.5rem 0.25rem',
+  minHeight: 44,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 }
 
 const verifyStyle = {

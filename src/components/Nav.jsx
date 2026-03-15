@@ -54,7 +54,7 @@ export default function Nav() {
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link
           to="/"
-          className="text-lg font-bold text-white no-underline transition opacity hover:opacity-90"
+          className="min-w-0 max-w-[calc(100%-3.5rem)] text-lg font-bold text-white no-underline transition opacity hover:opacity-90 break-words"
         >
           Veterans Separation Field Guide
         </Link>
@@ -62,9 +62,9 @@ export default function Nav() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/40 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] sm:hidden"
+          className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-lg border border-white/40 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] sm:hidden"
         >
-          <span className="text-xl">{open ? '✕' : '☰'}</span>
+          <span className="text-xl" aria-hidden>{open ? '✕' : '☰'}</span>
         </button>
         {/* Desktop nav */}
         <nav className="hidden gap-8 sm:flex sm:items-center">
@@ -106,7 +106,7 @@ export default function Nav() {
         className="overflow-hidden border-t border-white/10 sm:hidden"
         style={{ height: 0 }}
       >
-        <nav className="flex flex-col gap-1 px-4 pb-4 pt-3">
+        <nav className="flex flex-col gap-2 px-4 pb-4 pt-3">
           {navLinks.map((item, i) =>
             item.comingSoon ? (
               <button
@@ -117,7 +117,7 @@ export default function Nav() {
                   setShowComingSoon(true)
                   setOpen(false)
                 }}
-                className="nav-link rounded-lg px-4 py-3 text-left font-medium text-white/90 transition hover:bg-white/10 hover:text-white"
+                className="nav-link min-h-[48px] rounded-lg px-4 py-3 text-left font-medium text-white/90 transition hover:bg-white/10 hover:text-white flex items-center"
               >
                 {item.label}
               </button>
@@ -128,7 +128,7 @@ export default function Nav() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`nav-link rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
+                className={`nav-link min-h-[48px] rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 flex items-center ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
               >
                 {item.label}
               </a>
@@ -138,7 +138,7 @@ export default function Nav() {
                 ref={(el) => (linksRef.current[i] = el)}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className={`nav-link rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
+                className={`nav-link min-h-[48px] rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 flex items-center ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
               >
                 {item.label}
               </Link>
