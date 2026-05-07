@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom'
 import { calendlyMentoringLink } from '../config/calendly'
 
 export default function About() {
-  const roles = [
-    'Veteran Benefits Educator',
-    'Realtor helping military families',
-    'Creator of the Veterans Separation Field Guide',
-  ]
-
   return (
     <div className="min-h-screen">
       {/* Page hero */}
@@ -17,7 +11,7 @@ export default function About() {
             About Ryan
           </h1>
           <p className="mt-3 text-lg text-neutral-300">
-            Veteran · Realtor · Notary · VA Benefits Educator
+            Coach. Mentor. Accountability partner.
           </p>
         </div>
       </section>
@@ -28,33 +22,38 @@ export default function About() {
             <div className="rounded-xl overflow-hidden shadow-lg aspect-[3/4] max-h-[480px] md:max-h-none">
               <img
                 src="/assets/RyanRealestate.png"
-                alt="Ryan Buckingham — Realtor and VA benefits educator"
+                alt="Ryan Buckingham coaching portrait"
                 className="w-full h-full object-cover object-top"
               />
             </div>
             <div>
               <div className="prose prose-lg max-w-none text-neutral-600">
                 <p className="leading-relaxed">
-                  Ryan Buckingham is a retired U.S. Coast Guard Senior Chief with over 20 years of service.
+                  Ryan Buckingham is a life coach focused on helping men rebuild confidence,
+                  discipline, and direction after difficult transitions.
                 </p>
                 <p className="mt-4 leading-relaxed">
-                  After transitioning out of the military, he realized that although many resources exist for veterans, most service members leave the military without fully understanding the benefits they earned.
+                  His coaching is rooted in lived experience. Ryan has rebuilt through personal
+                  and professional adversity, and now guides clients through the same process with
+                  structure and accountability.
                 </p>
                 <p className="mt-4 leading-relaxed">
-                  Ryan now focuses on educating veterans on VA benefits, transition planning, and building a strong life after military service.
+                  He believes growth requires ownership, clear standards, and weekly execution,
+                  not motivation spikes.
+                </p>
+                <p className="mt-4 leading-relaxed">
+                  Coaching with Ryan combines honest conversations, practical strategy, and
+                  measurable action so clients can create momentum in real life.
+                </p>
+                <p className="mt-4 leading-relaxed">
+                  Areas commonly covered include mindset, routines, confidence, relationships,
+                  leadership, health habits, and business or career direction.
+                </p>
+                <p className="mt-4 leading-relaxed">
+                  If you are ready to stop drifting and start executing with intent, Ryan can help
+                  you build a clear path and follow through on it.
                 </p>
               </div>
-              <h2 className="mt-10 font-[family-name:var(--font-serif)] text-xl font-bold text-[var(--color-navy)]">
-                What he does today
-              </h2>
-              <ul className="mt-3 space-y-2 text-neutral-600">
-                {roles.map((role) => (
-                  <li key={role} className="flex items-start gap-2">
-                    <span className="text-[var(--color-gold)] mt-1" aria-hidden>✓</span>
-                    <span>{role}</span>
-                  </li>
-                ))}
-              </ul>
               <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
                 <Link
                   to="/contact"
@@ -67,14 +66,14 @@ export default function About() {
                     href={calendlyMentoringLink}
                     className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
-                    Book a Mentoring Session
+                    Book a Discovery Call
                   </a>
                 ) : (
                   <Link
-                    to="/mentoring"
+                    to="/coaching"
                     className="inline-flex items-center justify-center min-h-[48px] rounded-lg px-6 py-3 text-base font-semibold border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white transition-colors"
                   >
-                    Book a Mentoring Session
+                    Book a Discovery Call
                   </Link>
                 )}
               </div>

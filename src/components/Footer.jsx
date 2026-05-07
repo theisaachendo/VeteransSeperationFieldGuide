@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import bayAreaSoftwareLogo from '../../assets/Bay Area Software-2/icononly_transparent_nobuffer.png'
+import { discordInviteUrl } from '../config/discord'
+import DiscordIcon from './DiscordIcon'
 
 export default function Footer() {
   return (
@@ -7,27 +9,23 @@ export default function Footer() {
       <div style={containerStyle}>
         <div style={linksStyle}>
           <Link to="/" style={linkStyle}>Home</Link>
-          <Link to="/field-guide" style={linkStyle}>Field Guide</Link>
-          <Link to="/mentoring" style={linkStyle}>Mentoring</Link>
-          <Link to="/workshops" style={linkStyle}>Workshops</Link>
-          <a href="https://ratemyvso.com" target="_blank" rel="noopener noreferrer" style={linkStyle}>
-            Rate My VSO
-          </a>
+          <Link to="/about" style={linkStyle}>About</Link>
+          <Link to="/coaching" style={linkStyle}>Coaching</Link>
+          <Link to="/results" style={linkStyle}>Results</Link>
           <Link to="/contact" style={linkStyle}>Contact</Link>
           <Link to="/disclaimer" style={linkStyle}>Disclaimer</Link>
-        </div>
-        <p style={verifyStyle}>
-          Verify accredited representatives:{' '}
           <a
-            href="https://www.va.gov/get-help-from-accredited-representative/"
+            href={discordInviteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={linkStyle}
+            style={{ ...linkStyle, gap: '0.35rem' }}
           >
-            VA.gov
+            <DiscordIcon className="h-[1.05rem] w-[1.05rem] shrink-0" title="" />
+            Discord
           </a>
-        </p>
-        <p style={copyStyle}>© {new Date().getFullYear()} Veterans Separation Field Guide</p>
+        </div>
+        <p style={verifyStyle}>Helping you build momentum, discipline, and purpose.</p>
+        <p style={copyStyle}>© {new Date().getFullYear()} Ryan Buckingham Coaching</p>
         <a
           href="https://bayareasoftware.com"
           target="_blank"
@@ -49,9 +47,10 @@ export default function Footer() {
 
 const footerStyle = {
   marginTop: 'auto',
-  backgroundColor: 'var(--color-navy)',
+  background: 'linear-gradient(145deg, var(--color-navy) 0%, var(--color-navy-light) 100%)',
   color: 'var(--color-white)',
-  padding: '1.5rem 1rem 2rem',
+  padding: '2rem 1rem 2.25rem',
+  borderTop: '1px solid rgba(255,255,255,0.1)',
 }
 
 const containerStyle = {
@@ -64,24 +63,26 @@ const linksStyle = {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  gap: '0.5rem 1rem',
-  marginBottom: '1rem',
+  gap: '0.65rem 1rem',
+  marginBottom: '1.25rem',
 }
 
 const linkStyle = {
   color: 'rgba(255,255,255,0.9)',
   textDecoration: 'none',
-  padding: '0.5rem 0.25rem',
+  padding: '0.5rem 0.6rem',
   minHeight: 44,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  borderRadius: 8,
+  transition: 'background-color 0.2s, color 0.2s',
 }
 
 const verifyStyle = {
-  fontSize: '0.9rem',
+  fontSize: '0.95rem',
   margin: '0 0 0.5rem',
-  opacity: 0.9,
+  opacity: 0.92,
 }
 
 const copyStyle = {

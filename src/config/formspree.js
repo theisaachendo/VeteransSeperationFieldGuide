@@ -13,7 +13,7 @@ export const formspreeContactEndpoint =
       : `https://formspree.io/f/${trimmed}`
 
 /**
- * Formspree endpoint for the "Stay in the Loop" newsletter signup on the home page.
+ * Formspree endpoint for the coaching insights newsletter signup on the home page.
  * Set in .env as VITE_FORMSPREE_NEWSLETTER_ID (form ID only). See NEWSLETTER_SIGNUP_SETUP.md.
  */
 const rawNewsletter = import.meta.env.VITE_FORMSPREE_NEWSLETTER_ID

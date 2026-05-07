@@ -1,5 +1,5 @@
 /**
- * Calendly booking URL for 1:1 Veteran Transition Mentoring.
+ * Calendly booking URL for 1:1 coaching discovery calls.
  * Set in .env as VITE_CALENDLY_MENTORING_LINK (see CALENDLY_SETUP.md).
  */
 export const calendlyMentoringLink =
@@ -9,7 +9,7 @@ export const calendlyMentoringLink =
     : null
 
 /**
- * Calendly booking URL for Veteran Transition Workshops (group sessions).
+ * Optional Calendly booking URL for group coaching sessions.
  * Set in .env as VITE_CALENDLY_WORKSHOPS_LINK. See CALENDLY_WORKSHOPS_SETUP.md.
  */
 export const calendlyWorkshopsLink =

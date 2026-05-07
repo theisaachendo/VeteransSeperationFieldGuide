@@ -1,20 +1,21 @@
 import { useState, useRef, useLayoutEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
-import ComingSoonModal from './ComingSoonModal'
+import { discordInviteUrl } from '../config/discord'
+import DiscordIcon from './DiscordIcon'
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/field-guide', label: 'Field Guide' },
-  { to: '/mentoring', label: 'Mentoring' },
-  { to: '/workshops', label: 'Workshops' },
-  { href: 'https://ratemyvso.com', label: 'Rate My VSO', external: true, comingSoon: true },
+  { to: '/about', label: 'About' },
+  { to: '/coaching', label: 'Coaching' },
+  { to: '/results', label: 'Results' },
+  { href: discordInviteUrl, label: 'Discord', external: true },
   { to: '/contact', label: 'Contact' },
+  { to: '/disclaimer', label: 'Disclaimer' },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const [showComingSoon, setShowComingSoon] = useState(false)
   const location = useLocation()
   const menuRef = useRef(null)
   const linksRef = useRef([])
@@ -50,49 +51,43 @@ export default function Nav() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-[100] bg-[var(--color-navy)] text-white shadow-lg">
+    <header className="sticky top-0 z-[100] border-b border-white/10 bg-[var(--color-navy)]/95 text-white shadow-lg backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link
           to="/"
-          className="min-w-0 max-w-[calc(100%-3.5rem)] text-lg font-bold text-white no-underline transition opacity hover:opacity-90 break-words"
+          className="min-w-0 max-w-[calc(100%-3.5rem)] text-lg font-bold text-white no-underline transition hover:text-[var(--color-gold-light)] break-words"
         >
-          Veterans Separation Field Guide
+          Ryan Buckingham Coaching
         </Link>
         <button
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-lg border border-white/40 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] sm:hidden"
+          className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-xl border border-white/40 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-[var(--color-navy)] sm:hidden"
         >
           <span className="text-xl" aria-hidden>{open ? '✕' : '☰'}</span>
         </button>
         {/* Desktop nav */}
-        <nav className="hidden gap-8 sm:flex sm:items-center">
+        <nav className="hidden gap-7 sm:flex sm:items-center">
           {navLinks.map((item) =>
-            item.comingSoon ? (
-              <button
-                key={item.label}
-                type="button"
-                onClick={() => setShowComingSoon(true)}
-                className="nav-link border-none bg-transparent p-0 font-medium text-white/90 transition hover:text-[var(--color-gold)]"
-              >
-                {item.label}
-              </button>
-            ) : item.external ? (
+            item.external ? (
               <a
                 key={item.label}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`nav-link font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90'}`}
+                className={`nav-link inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'bg-white/10 text-[var(--color-gold)]' : 'text-white/90'}`}
               >
+                {item.label === 'Discord' ? (
+                  <DiscordIcon className="h-4 w-4 shrink-0 opacity-90" title="" />
+                ) : null}
                 {item.label}
               </a>
             ) : (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`nav-link font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90'}`}
+                className={`nav-link rounded-md px-2 py-1 font-medium no-underline transition hover:text-[var(--color-gold)] ${location.pathname === item.to ? 'bg-white/10 text-[var(--color-gold)]' : 'text-white/90'}`}
               >
                 {item.label}
               </Link>
@@ -108,28 +103,19 @@ export default function Nav() {
       >
         <nav className="flex flex-col gap-2 px-4 pb-4 pt-3">
           {navLinks.map((item, i) =>
-            item.comingSoon ? (
-              <button
-                key={item.label}
-                type="button"
-                ref={(el) => (linksRef.current[i] = el)}
-                onClick={() => {
-                  setShowComingSoon(true)
-                  setOpen(false)
-                }}
-                className="nav-link min-h-[48px] rounded-lg px-4 py-3 text-left font-medium text-white/90 transition hover:bg-white/10 hover:text-white flex items-center"
-              >
-                {item.label}
-              </button>
-            ) : item.external ? (
+            item.external ? (
               <a
                 key={item.label}
                 ref={(el) => (linksRef.current[i] = el)}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`nav-link min-h-[48px] rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 flex items-center ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
+                onClick={() => setOpen(false)}
+                className={`nav-link min-h-[48px] rounded-lg px-4 py-3 font-medium no-underline transition hover:bg-white/10 flex items-center gap-2 ${location.pathname === item.to ? 'text-[var(--color-gold)]' : 'text-white/90 hover:text-white'}`}
               >
+                {item.label === 'Discord' ? (
+                  <DiscordIcon className="h-5 w-5 shrink-0 opacity-90" title="" />
+                ) : null}
                 {item.label}
               </a>
             ) : (
@@ -146,7 +132,6 @@ export default function Nav() {
           )}
         </nav>
       </div>
-      <ComingSoonModal isOpen={showComingSoon} onClose={() => setShowComingSoon(false)} />
     </header>
   )
 }

@@ -1,4 +1,12 @@
 import { useState } from 'react'
+import {
+  coachEmail,
+  coachEmailMailto,
+  coachPhoneDisplayUsa,
+  coachPhoneTel,
+  coachWhatsAppUrl,
+} from '../config/contact'
+import WhatsAppIcon from '../components/WhatsAppIcon'
 import { formspreeContactEndpoint } from '../config/formspree'
 
 export default function Contact() {
@@ -20,6 +28,7 @@ export default function Contact() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          _subject: 'New coaching inquiry — Ryan Buckingham Coaching',
           _replyto: formData.email, // so Ryan can "Reply" to the submitter
         }),
       })
@@ -48,7 +57,7 @@ export default function Contact() {
             Contact
           </h1>
           <p className="mt-3 text-lg text-neutral-300">
-            Reach out for questions about the Field Guide, mentoring, or workshops.
+            Reach out about discovery calls, the monthly membership, or anything else.
           </p>
         </div>
       </section>
@@ -57,20 +66,35 @@ export default function Contact() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div className="p-6 sm:p-8 rounded-xl bg-neutral-50 border border-neutral-200 shadow-sm">
             <p className="text-xl font-semibold text-[var(--color-navy)]">Ryan Buckingham</p>
-            <p className="mt-1 text-sm text-neutral-500">Veteran | Realtor | Notary | VA Benefits Educator</p>
-            <div className="mt-6 space-y-3">
+            <p className="mt-1 text-sm text-neutral-500">Coach · Monthly membership available</p>
+            <div className="mt-6 space-y-4">
               <a
-                href="mailto:Ryan@veteranseparationfieldguide.com"
-                className="block min-h-[44px] py-2 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
+                href={coachEmailMailto}
+                className="block min-h-[44px] py-1 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors break-all"
               >
-                Ryan@veteranseparationfieldguide.com
+                {coachEmail}
               </a>
-              <a
-                href="tel:757-355-3222"
-                className="block min-h-[44px] py-2 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
-              >
-                757-355-3222
-              </a>
+              <div>
+                <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">Phone (USA)</p>
+                <a
+                  href={coachPhoneTel}
+                  className="mt-0.5 block min-h-[44px] py-1 text-base text-neutral-700 hover:text-[var(--color-navy)] font-medium transition-colors"
+                >
+                  {coachPhoneDisplayUsa}
+                </a>
+              </div>
+              <div>
+                <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">WhatsApp</p>
+                <a
+                  href={coachWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-0.5 inline-flex min-h-[44px] items-center gap-2 py-1 text-base font-medium text-[#25D366] hover:text-[#128C7E] transition-colors"
+                >
+                  <WhatsAppIcon className="h-6 w-6 shrink-0" title="" />
+                  Message on WhatsApp
+                </a>
+              </div>
             </div>
           </div>
 
@@ -79,12 +103,7 @@ export default function Contact() {
               Send a message
             </h2>
 
-            {!formspreeContactEndpoint ? (
-              <p className="mt-4 text-neutral-600">
-                Contact form is not configured yet. Add <code className="text-sm bg-neutral-100 px-1 rounded">VITE_FORMSPREE_CONTACT_ID</code> to your <code className="text-sm bg-neutral-100 px-1 rounded">.env</code> (see CONTACT_FORM_SETUP.md).
-              </p>
-            ) : (
-              <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
+            <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-700 mb-1">
                     Name
@@ -152,8 +171,7 @@ export default function Contact() {
                 >
                   {status === 'sending' ? 'Sending…' : 'Send message'}
                 </button>
-              </form>
-            )}
+            </form>
           </div>
         </div>
       </section>
